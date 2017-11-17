@@ -8,10 +8,6 @@ var Web3 = require("web3");
 
 function WalletProvider(privateKey) {
 
-  if (address_index == null) {
-    address_index = 0;
-  }
-
   var privateKeyBuffer = new Buffer(privateKey, 'hex');
   this.wallet = Wallet.fromPrivateKey(privateKeyBuffer);
   this.address = this.wallet.getAddressString();
