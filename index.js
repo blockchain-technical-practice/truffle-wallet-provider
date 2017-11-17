@@ -6,8 +6,6 @@ var WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
 var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
 var Web3 = require("web3");
 
-var keythereum = require("keythereum");
-
 function WalletProvider(privateKey,provider_url) {
 
   var privateKeyBuffer = new Buffer(privateKey, 'hex');
@@ -33,16 +31,5 @@ WalletProvider.prototype.getAddress = function() {
   return this.address;
 };
 
-
-function keystore(address,password, datadir){
-    return new Promise(function (resolve, reject) {
-        keythereum.importFromFile(address, datadir, resolve)
-    }).then(function(keyObject){
-        return new Promise(function (resolve, reject) {
-            keythereum.recover(password, keyObject, resolve)
-        })
-    })
-}
-
 module.exports = WalletProvider;
-module.exports = keystore;
+
