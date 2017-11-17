@@ -6,7 +6,7 @@ var WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
 var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
 var Web3 = require("web3");
 
-function WalletProvider(privateKey) {
+function WalletProvider(privateKey,provider_url) {
 
   var privateKeyBuffer = new Buffer(privateKey, 'hex');
   this.wallet = Wallet.fromPrivateKey(privateKeyBuffer);
