@@ -7,13 +7,13 @@ var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
 var Web3 = require("web3");
 
 function WalletProvider(privateKey) {
-  this.mnemonic = mnemonic;
 
   if (address_index == null) {
     address_index = 0;
   }
 
-  this.wallet = Wallet.fromPrivateKey(privateKey);
+  var privateKeyBuffer = new Buffer(privateKey, 'hex');
+  this.wallet = Wallet.fromPrivateKey(privateKeyBuffer);
   this.address = this.wallet.getAddressString();
 
   this.engine = new ProviderEngine();
