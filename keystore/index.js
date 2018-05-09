@@ -17,7 +17,8 @@ function getPrivateFromkeystore(address,password, datadir){
 function getPrivateFromkeystore(address,password, datadir){
     var keyObject=keythereum.importFromFile(address, datadir);
     var privatekey=keythereum.recover(password, keyObject);
-    return '0x' + privatekey.toString('hex');
+    // return '0x' + privatekey.toString('hex');
+    return privatekey
 }
 
 module.exports.getPrivateFromkeystore = getPrivateFromkeystore;
